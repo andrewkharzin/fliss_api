@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-app_name = 'stickynotes'
+app_name = 'notes'
 
 urlpatterns = [
 
@@ -10,3 +10,4 @@ urlpatterns = [
  path('category/<category_id>/', views.category_detail, name='detail'),
 
 ]
+

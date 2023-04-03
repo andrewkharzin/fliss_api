@@ -1,7 +1,7 @@
 from django.contrib import admin
 from apps.projects.models.project import Project
-from apps.projects.models.document import Document
-from apps.projects.models.note import Note
+# from apps.projects.models.document import Document
+# from apps.projects.models.note import Note
 
 
 from django.contrib import messages
@@ -65,16 +65,16 @@ from django.utils.html import format_html
 #         return custom_urls + urls
 
 
-class NoteInline(admin.TabularInline):
-    model = Note
+# class NoteInline(admin.TabularInline):
+#     model = Note
 
-class DocumentInline(admin.TabularInline):
-    model = Document
+# class DocumentInline(admin.TabularInline):
+#     model = Document
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['name' , 'created_at', 'updated_at']
-    inlines = [NoteInline, DocumentInline]
+    # inlines = [NoteInline, DocumentInline]
 
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(Note)
-admin.site.register(Document)
+# admin.site.register(Note)
+# admin.site.register(Document)

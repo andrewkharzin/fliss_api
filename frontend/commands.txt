@@ -1,0 +1,8 @@
+# start project
+$ create-react-app simplenote --scripts-version=react-scripts-ts
+$ mv simplenote front && cd front
+
+# install dependencies
+$ yarn add antd react-router-dom query-string graphql graphql-tag apollo-cache-inmemory apollo-link-http apollo-client react-apollo
+$ yarn add -D @types/react-router-dom @types/graphql @types/query-string
+$ yarn add -D graphql-code-generator graphql-codegen-typescript-common graphql-codegen-typescript-react-apollo-template graphql-codegen-typescript-template

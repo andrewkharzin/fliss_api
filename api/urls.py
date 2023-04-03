@@ -2,6 +2,6 @@ from django.urls import path, include
 
 urlpatterns = [
 
- path('stickynotes/', include('api.microapps.stickynotes.urls'))
+  path('', include("api.microapps.stickynotes.rest.urls"))
 
 ]

@@ -6,10 +6,10 @@ from pytils.translit import slugify
 
 
 class Project(BaseClass):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=False)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
     description = models.TextField(blank=True)
-    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='projects')
+    # customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='projects')
     
     
 

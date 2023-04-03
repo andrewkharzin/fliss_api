@@ -40,6 +40,12 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
+THIRDPARTY_APPS = [
+    'graphene_django',
+    'corsheaders',
+    'django_filters',
+]
+
 PROJECT_APPS = [
     'apps.users',
     'apps.customers',
@@ -48,17 +54,20 @@ PROJECT_APPS = [
     'apps.microapps.stickynotes'
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Keycloak settings
 # AUTHENTICATION_BACKENDS = [
@@ -138,20 +147,32 @@ USE_I18N = True
 
 USE_TZ = True
 
+GRAPHENE = {
+  "SCHEMA": "api.graphql.schema.schema",
+}
+
 AUTH_USER_MODEL = 'users.User'
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATIC_ROOT='/'
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL = "static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# Define the path to the airlines_logos folder relative to the base directory
+# AIRLINES_LOGOS_DIR = os.path.join(BASE_DIR, 'media/airlines/square/')
+
+# Set the MEDIA_ROOT to the path of the airlines_logos folder
+
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
